@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: OracleBMC
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!OracleBMC.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (O)</a> &raquo;
+    
+    
+    <span class="title">OracleBMC</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: OracleBMC
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/oraclebmc.rb<span class="defines">,<br />
+  lib/oraclebmc/config.rb,<br /> lib/oraclebmc/errors.rb,<br /> lib/oraclebmc/signer.rb,<br /> lib/oraclebmc/waiter.rb,<br /> lib/oraclebmc/regions.rb,<br /> lib/oraclebmc/version.rb,<br /> lib/oraclebmc/response.rb,<br /> lib/oraclebmc/core/core.rb,<br /> lib/oraclebmc/api_client.rb,<br /> lib/oraclebmc/global_context.rb,<br /> lib/oraclebmc/core/models/cpe.rb,<br /> lib/oraclebmc/core/models/drg.rb,<br /> lib/oraclebmc/core/models/vcn.rb,<br /> lib/oraclebmc/core/models/vnic.rb,<br /> lib/oraclebmc/core/models/image.rb,<br /> lib/oraclebmc/core/models/shape.rb,<br /> lib/oraclebmc/identity/identity.rb,<br /> lib/oraclebmc/config_file_loader.rb,<br /> lib/oraclebmc/core/models/subnet.rb,<br /> lib/oraclebmc/core/models/volume.rb,<br /> lib/oraclebmc/core/compute_client.rb,<br /> lib/oraclebmc/core/models/instance.rb,<br /> lib/oraclebmc/identity/models/user.rb,<br /> lib/oraclebmc/identity/models/group.rb,<br /> lib/oraclebmc/core/models/port_range.rb,<br /> lib/oraclebmc/core/models/route_rule.rb,<br /> lib/oraclebmc/identity/models/policy.rb,<br /> lib/oraclebmc/core/models/dhcp_option.rb,<br /> lib/oraclebmc/core/models/route_table.rb,<br /> lib/oraclebmc/core/models/tcp_options.rb,<br /> lib/oraclebmc/core/models/udp_options.rb,<br /> lib/oraclebmc/identity/models/api_key.rb,<br /> lib/oraclebmc/core/blockstorage_client.rb,<br /> lib/oraclebmc/core/models/dhcp_options.rb,<br /> lib/oraclebmc/core/models/icmp_options.rb,<br /> lib/oraclebmc/identity/identity_client.rb,<br /> lib/oraclebmc/core/models/security_list.rb,<br /> lib/oraclebmc/core/models/tunnel_config.rb,<br /> lib/oraclebmc/core/models/tunnel_status.rb,<br /> lib/oraclebmc/core/models/volume_backup.rb,<br /> lib/oraclebmc/core/models/drg_attachment.rb,<br /> lib/oraclebmc/core/virtual_network_client.rb,<br /> lib/oraclebmc/core/models/console_history.rb,<br /> lib/oraclebmc/core/models/dhcp_dns_option.rb,<br /> lib/oraclebmc/core/models/vnic_attachment.rb,<br /> lib/oraclebmc/identity/models/compartment.rb,<br /> lib/oraclebmc/identity/models/ui_password.rb,<br /> lib/oraclebmc/core/models/internet_gateway.rb,<br /> lib/oraclebmc/core/models/ip_sec_connection.rb,<br /> lib/oraclebmc/core/models/volume_attachment.rb,<br /> lib/oraclebmc/core/models/create_cpe_details.rb,<br /> lib/oraclebmc/core/models/create_drg_details.rb,<br /> lib/oraclebmc/core/models/create_vcn_details.rb,<br /> lib/oraclebmc/core/models/update_cpe_details.rb,<br /> lib/oraclebmc/core/models/update_drg_details.rb,<br /> lib/oraclebmc/core/models/update_vcn_details.rb,<br /> lib/oraclebmc/identity/models/swift_password.rb,<br /> lib/oraclebmc/core/models/create_dhcp_details.rb,<br /> lib/oraclebmc/core/models/update_dhcp_details.rb,<br /> lib/oraclebmc/core/models/create_image_details.rb,<br /> lib/oraclebmc/core/models/egress_security_rule.rb,<br /> lib/oraclebmc/core/models/update_image_details.rb,<br /> lib/oraclebmc/core/models/attach_volume_details.rb,<br /> lib/oraclebmc/core/models/create_subnet_details.rb,<br /> lib/oraclebmc/core/models/create_volume_details.rb,<br /> lib/oraclebmc/core/models/ingress_security_rule.rb,<br /> lib/oraclebmc/core/models/update_subnet_details.rb,<br /> lib/oraclebmc/core/models/update_volume_details.rb,<br /> lib/oraclebmc/core/models/launch_instance_details.rb,<br /> lib/oraclebmc/core/models/update_instance_details.rb,<br /> lib/oraclebmc/identity/models/availability_domain.rb,<br /> lib/oraclebmc/identity/models/create_user_details.rb,<br /> lib/oraclebmc/identity/models/update_user_details.rb,<br /> lib/oraclebmc/core/models/i_scsi_volume_attachment.rb,<br /> lib/oraclebmc/identity/models/create_group_details.rb,<br /> lib/oraclebmc/identity/models/update_group_details.rb,<br /> lib/oraclebmc/identity/models/update_state_details.rb,<br /> lib/oraclebmc/identity/models/create_policy_details.rb,<br /> lib/oraclebmc/identity/models/update_policy_details.rb,<br /> lib/oraclebmc/identity/models/user_group_membership.rb,<br /> lib/oraclebmc/core/models/create_route_table_details.rb,<br /> lib/oraclebmc/core/models/update_route_table_details.rb,<br /> lib/oraclebmc/identity/models/create_api_key_details.rb,<br /> lib/oraclebmc/core/models/attach_i_scsi_volume_details.rb,<br /> lib/oraclebmc/core/models/create_security_list_details.rb,<br /> lib/oraclebmc/core/models/create_volume_backup_details.rb,<br /> lib/oraclebmc/core/models/update_security_list_details.rb,<br /> lib/oraclebmc/core/models/update_volume_backup_details.rb,<br /> lib/oraclebmc/core/models/create_drg_attachment_details.rb,<br /> lib/oraclebmc/core/models/update_drg_attachment_details.rb,<br /> lib/oraclebmc/identity/models/add_user_to_group_details.rb,<br /> lib/oraclebmc/identity/models/create_compartment_details.rb,<br /> lib/oraclebmc/identity/models/update_compartment_details.rb,<br /> lib/oraclebmc/core/models/capture_console_history_details.rb,<br /> lib/oraclebmc/core/models/create_internet_gateway_details.rb,<br /> lib/oraclebmc/core/models/ip_sec_connection_device_config.rb,<br /> lib/oraclebmc/core/models/ip_sec_connection_device_status.rb,<br /> lib/oraclebmc/core/models/update_internet_gateway_details.rb,<br /> lib/oraclebmc/core/models/create_ip_sec_connection_details.rb,<br /> lib/oraclebmc/core/models/update_ip_sec_connection_details.rb,<br /> lib/oraclebmc/identity/models/create_swift_password_details.rb,<br /> lib/oraclebmc/identity/models/update_swift_password_details.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Copyright © 2016 Oracle and/or its affiliates. All rights reserved.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="OracleBMC/ConfigFileLoader.html" title="OracleBMC::ConfigFileLoader (module)">ConfigFileLoader</a></span>, <span class='object_link'><a href="OracleBMC/Core.html" title="OracleBMC::Core (module)">Core</a></span>, <span class='object_link'><a href="OracleBMC/Errors.html" title="OracleBMC::Errors (module)">Errors</a></span>, <span class='object_link'><a href="OracleBMC/Identity.html" title="OracleBMC::Identity (module)">Identity</a></span>, <span class='object_link'><a href="OracleBMC/Regions.html" title="OracleBMC::Regions (module)">Regions</a></span>, <span class='object_link'><a href="OracleBMC/Waiter.html" title="OracleBMC::Waiter (module)">Waiter</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="OracleBMC/ApiClient.html" title="OracleBMC::ApiClient (class)">ApiClient</a></span>, <span class='object_link'><a href="OracleBMC/Config.html" title="OracleBMC::Config (class)">Config</a></span>, <span class='object_link'><a href="OracleBMC/Response.html" title="OracleBMC::Response (class)">Response</a></span>, <span class='object_link'><a href="OracleBMC/Signer.html" title="OracleBMC::Signer (class)">Signer</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          
+        </dt>
+        <dd><pre class="code"><span class='string val'>&quot;1.0.1&quot;</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#config-class_method" title="config (class method)">+ (Config) <strong>config</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Gets the global Config, or loads the default config file if a Config has
+not been set.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#config%3D-class_method" title="config= (class method)">+ (Object) <strong>config=</strong>(c) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set the global Config.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="config-class_method">
+  
+    + (<tt><span class='object_link'><a href="OracleBMC/Config.html" title="OracleBMC::Config (class)">Config</a></span></tt>) <strong>config</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets the global Config, or loads the default config file if a Config has
+not been set.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="OracleBMC/Config.html" title="OracleBMC::Config (class)">Config</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/global_context.rb', line 12</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span>
+  <span class='rubyid_@config ivar id'>@config</span> <span class='opasgn op'>||=</span> <span class='rubyid_ConfigFileLoader constant id'>ConfigFileLoader</span><span class='dot token'>.</span><span class='rubyid_load_config identifier id'>load_config</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="config=-class_method">
+  
+    + (<tt>Object</tt>) <strong>config=</strong>(c) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Set the global Config</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/global_context.rb', line 17</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='assign token'>=</span><span class='lparen token'>(</span><span class='rubyid_c identifier id'>c</span><span class='rparen token'>)</span>
+  <span class='rubyid_@config ivar id'>@config</span> <span class='assign token'>=</span> <span class='rubyid_c identifier id'>c</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Fri Nov 18 03:54:11 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.4).
+</div>
+
+  </body>
+</html>

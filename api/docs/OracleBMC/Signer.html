@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: OracleBMC::Signer
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!OracleBMC/Signer.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../OracleBMC.html" title="OracleBMC (module)">OracleBMC</a></span></span>
+     &raquo; 
+    <span class="title">Signer</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: OracleBMC::Signer
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">OracleBMC::Signer</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/oraclebmc/signer.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Used to sign HTTP requests as required by Oracle Bare Metal Cloud services.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="SIGNATURE_VERSION-constant" class="">SIGNATURE_VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The Oracle Bare Metal Cloud Services API signature version</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='string val'>&quot;1&quot;</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Signer) <strong>initialize</strong>(user, fingerprint, tenancy, private_key_file, pass_phrase: nil) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a Signer.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sign-instance_method" title="#sign (instance method)">- (Object) <strong>sign</strong>(method, uri, headers, body) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates the correct signature and adds it to the headers that are passed
+in.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="OracleBMC::Signer (class)">Signer</a></span></tt>) <strong>initialize</strong>(user, fingerprint, tenancy, private_key_file, pass_phrase: nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a Signer</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>user</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>OCID of the user to be used for authentication, for example
+“ocidv1:user:oc1:phx:1460406592659:aaaaaaaawcbqrkycbolrirg2n3xjl5fyxe”.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>fingerprint</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Fingerprint of the key used for authentication, for example
+“20:3b:97:13:55:1c:5b:0d:d3:37:d8:50:4e:c5:3a:34”</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tenancy</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>OCID of the tenancy</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>private_key_file</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Full path and filename of the unencrypted PEM file, for example
+“/Users/bgustafs/.ssh/id_rsa.pem”</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>pass_phrase</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Optional pass phrase used to encrypt the private key</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/signer.rb', line 25</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_user identifier id'>user</span><span class='comma token'>,</span> <span class='rubyid_fingerprint identifier id'>fingerprint</span><span class='comma token'>,</span> <span class='rubyid_tenancy identifier id'>tenancy</span><span class='comma token'>,</span> <span class='rubyid_private_key_file identifier id'>private_key_file</span><span class='comma token'>,</span> <span class='label val'>pass_phrase:</span><span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_fail identifier id'>fail</span> <span class='string val'>&#39;Missing required parameter user.&#39;</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_user identifier id'>user</span>
+  <span class='rubyid_fail identifier id'>fail</span> <span class='string val'>&#39;Missing required parameter fingerprint.&#39;</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_fingerprint identifier id'>fingerprint</span>
+  <span class='rubyid_fail identifier id'>fail</span> <span class='string val'>&#39;Missing required parameter tenancy.&#39;</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_tenancy identifier id'>tenancy</span>
+  <span class='rubyid_fail identifier id'>fail</span> <span class='string val'>&#39;Missing required parameter private_key_file.&#39;</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_private_key_file identifier id'>private_key_file</span>
+
+  <span class='rubyid_@key_id ivar id'>@key_id</span> <span class='assign token'>=</span> <span class='rubyid_tenancy identifier id'>tenancy</span> <span class='plus op'>+</span> <span class='string val'>&quot;/&quot;</span> <span class='plus op'>+</span> <span class='rubyid_user identifier id'>user</span> <span class='plus op'>+</span> <span class='string val'>&quot;/&quot;</span> <span class='plus op'>+</span> <span class='rubyid_fingerprint identifier id'>fingerprint</span>
+  <span class='rubyid_@private_key_file ivar id'>@private_key_file</span> <span class='assign token'>=</span> <span class='rubyid_private_key_file identifier id'>private_key_file</span>
+  <span class='rubyid_@pass_phrase ivar id'>@pass_phrase</span> <span class='assign token'>=</span> <span class='rubyid_pass_phrase identifier id'>pass_phrase</span> <span class='eq op'>==</span> <span class='rubyid_nil nil kw'>nil</span> <span class='question op'>?</span> <span class='string val'>&quot;&quot;</span> <span class='colon op'>:</span> <span class='rubyid_pass_phrase identifier id'>pass_phrase</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="sign-instance_method">
+  
+    - (<tt>Object</tt>) <strong>sign</strong>(method, uri, headers, body) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates the correct signature and adds it to the headers that are passed
+in. Also injects any required headers that might be missing.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>method</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The HTTP method, such as :get or :post.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>uri</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The URI, such as &#39;<a
+href="https://iaas.us-phoenix-1.oraclecloud.com/20160918/volumeAttachments">iaas.us-phoenix-1.oraclecloud.com/20160918/volumeAttachments</a>/&#39;</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A hash of headers</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>body</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The request body</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/signer.rb', line 44</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_sign identifier id'>sign</span><span class='lparen token'>(</span><span class='rubyid_method identifier id'>method</span><span class='comma token'>,</span> <span class='rubyid_uri identifier id'>uri</span><span class='comma token'>,</span> <span class='rubyid_headers identifier id'>headers</span><span class='comma token'>,</span> <span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
+  <span class='rubyid_method identifier id'>method</span> <span class='assign token'>=</span> <span class='rubyid_method identifier id'>method</span><span class='dot token'>.</span><span class='rubyid_to_sym identifier id'>to_sym</span><span class='dot token'>.</span><span class='rubyid_downcase identifier id'>downcase</span>
+  <span class='rubyid_uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='rubyid_URI constant id'>URI</span><span class='lparen token'>(</span><span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span>
+  <span class='rubyid_path identifier id'>path</span> <span class='assign token'>=</span> <span class='rubyid_uri identifier id'>uri</span><span class='dot token'>.</span><span class='rubyid_query identifier id'>query</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span> <span class='integer val'>? </span><span class='rubyid_uri identifier id'>uri</span><span class='dot token'>.</span><span class='rubyid_path identifier id'>path</span> <span class='colon op'>:</span> <span class='dstring node'>&quot;#{uri.path}?#{uri.query}&quot;</span>
+  <span class='rubyid_inject_missing_headers identifier id'>inject_missing_headers</span><span class='lparen token'>(</span><span class='rubyid_method identifier id'>method</span><span class='comma token'>,</span> <span class='rubyid_headers identifier id'>headers</span><span class='comma token'>,</span> <span class='rubyid_body identifier id'>body</span><span class='comma token'>,</span> <span class='rubyid_uri identifier id'>uri</span><span class='rparen token'>)</span>
+  <span class='rubyid_signature identifier id'>signature</span> <span class='assign token'>=</span> <span class='rubyid_compute_signature identifier id'>compute_signature</span><span class='lparen token'>(</span><span class='rubyid_headers identifier id'>headers</span><span class='comma token'>,</span> <span class='rubyid_method identifier id'>method</span><span class='comma token'>,</span> <span class='rubyid_path identifier id'>path</span><span class='rparen token'>)</span>
+  <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_signature identifier id'>signature</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span>
+    <span class='rubyid_inject_authorization_header identifier id'>inject_authorization_header</span><span class='lparen token'>(</span><span class='rubyid_headers identifier id'>headers</span><span class='comma token'>,</span> <span class='rubyid_method identifier id'>method</span><span class='comma token'>,</span> <span class='rubyid_signature identifier id'>signature</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Fri Nov 18 03:54:11 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.4).
+</div>
+
+  </body>
+</html>

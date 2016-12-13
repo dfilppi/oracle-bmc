@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Oracle+Bare+Metal+Cloud+Services+Ruby+SDK">Oracle Bare Metal Cloud Services Ruby SDK</h1>
+
+<p>This topic describes how to install, configure, and use the Oracle Bare
+Metal Cloud Services Ruby SDK.</p>
+
+<h2 id="label-SDK+Overview">SDK Overview</h2>
+
+<p>The Ruby SDK includes clients for the Identity and Access Management
+Service and the Core Services (which includes Networking Service, Compute
+Service, and Block Volume Service).</p>
+
+<p>The following table details some of the attributes of the SDK.</p>
+<table>
+<tbody>
+	<tr>
+		<td>Requests</td>
+		<td>API methods expose required parameters as arguments and optional arguments as a hash (opts = {}). Create and update operations take request objects that mirror the properties of those objects.</td>
+	</tr>
+	<tr>
+		<td>Responses</td>
+		<td>All API methods return a Response object, which contains an HTTP status (200, 204, etc), headers, and data, and also directly exposes some commonly used response headers such as <code>opc-next_page</code>, and <code>opc-request_id</code>.</td>
+	</tr>
+	<tr>
+		<td>Models</td>
+		<td>Get, update, and create operations return first class objects of the corresponding type (such as User, Instance, etc) in Response.data.</td>
+	</tr>
+	<tr>
+		<td>Errors</td>
+		<td>Unsuccessful requests will always raise an exception. <span class='object_link'><a href="OracleBMC/Errors/ServiceError.html" title="OracleBMC::Errors::ServiceError (class)">ServiceError</a></span> is raised when the service returns an error, and <span class='object_link'><a href="OracleBMC/Errors/NetworkError.html" title="OracleBMC::Errors::NetworkError (class)">NetworkError</a></span> is raised for network issues (such as failed host resolution).</td>
+	</tr>
+    <tr>
+		<td>Signing</td>
+		<td>Requests made through the API classes are automatically signed, but you can also use the <span class='object_link'><a href="OracleBMC/Signer.html" title="OracleBMC::Signer (class)">Signer</a></span> directly to sign your own requests if needed.</td>
+	</tr>
+	<tr>
+		<td>Automatic Paging</td>
+		<td>Response objects for lists support <span class='object_link'><a href="OracleBMC/Response.html#each-instance_method" title="OracleBMC::Response#each (method)">page enumeration</a></span>. See example code later in this file.</td>
+	</tr>
+	<tr>
+		<td>Waiters</td>
+		<td>Responses for get requests support waiting for a particular states using <span class='object_link'><a href="OracleBMC/Response.html#wait_until-instance_method" title="OracleBMC::Response#wait_until (method)">wait_until</a></span>. See example code later in this file.</td>
+	</tr>
+	<tr>
+		<td>Tests</td>
+		<td>Tests are included with the gem. However, to run them locally you would need mock response data and credentials that are not included. So, think of these tests as additional example code.</td>
+	</tr>
+	<tr>
+		<td>HTTP Client</td>
+		<td>The Ruby SDK uses <a href="https://github.com/typhoeus/typhoeus" target="_parent" title="Typhoeus">Typhoeus</a> for HTTP requests, which in turn calls libcurl. Some behaviors may depend on your installation of libcurl. If needed, arbitrary options may be passed to each Typhoeus request by specifying them in <span class='object_link'><a href="OracleBMC/ApiClient.html#request_option_overrides-instance_method" title="OracleBMC::ApiClient#request_option_overrides (method)">ApiClient.request_option_overrides</a></span>.</td>
+	</tr>
+</tbody>
+</table>
+<h2 id="label-Requirements">Requirements</h2>
+
+<p>To use the Ruby SDK, you must have:</p>
+<ul><li>
+<p>An Oracle Bare Metal Cloud Services account.</p>
+</li><li>
+<p>A user created in that account, in a group with a policy that grants the
+desired permissions. This can be a user for yourself, or another
+person/system that needs to call the API. For an example of how to set up a
+new user, group, compartment, and policy, see <a
+href="https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/addingusers.htm">Adding
+Users</a> in the Getting Started Guide. For a list of typical policies you
+may want to use, see <a
+href="https://docs.us-phoenix-1.oraclecloud.com/Content/Identity/Concepts/commonpolicies.htm">Common
+Policies</a> in the User Guide.</p>
+</li><li>
+<p>A keypair used for signing API requests, with the public key uploaded to
+Oracle. Only the user calling the API should be in possession of the
+private key. See the configuration information below.</p>
+</li><li>
+<p>Ruby version 2.2 or later running on Mac or Linux. Windows is not supported
+at this time.</p>
+</li></ul>
+
+<h2 id="label-Downloading+and+Installing+the+Gem+File">Downloading and Installing the Gem File</h2>
+
+<p>You can <a
+href="https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/sdks.htm">download
+the Ruby SDK</a> as a zip archive containing the gem, documentation,
+examples, and licensing information. The gem can be installed with the
+following command:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='rubyid_gem identifier id'>gem</span> <span class='rubyid_install identifier id'>install</span> <span class='rubyid_oraclebmc identifier id'>oraclebmc</span><span class='minus op'>-</span><span class='float val'>1.0</span><span class='float val'>.1</span><span class='dot token'>.</span><span class='rubyid_gem identifier id'>gem</span>
+</code></pre>
+
+<h3 id="label-Troubleshooting+an+Installation">Troubleshooting an Installation</h3>
+
+<p>If you see “Unable to resolve dependencies”, you can install the
+dependencies manually:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='rubyid_gem identifier id'>gem</span> <span class='rubyid_install identifier id'>install</span> <span class='rubyid_typhoeus identifier id'>typhoeus</span>
+<span class='rubyid_gem identifier id'>gem</span> <span class='rubyid_install identifier id'>install</span> <span class='rubyid_inifile identifier id'>inifile</span>
+</code></pre>
+
+<h2 id="label-Configuring+the+SDK">Configuring the SDK</h2>
+
+<p>To use any of the APIs, you must supply a <span class='object_link'><a href="OracleBMC/Config.html" title="OracleBMC::Config (class)">Config</a></span>
+object. You can create the object directly in code, or you can create one
+in a config file. The configuration includes:</p>
+<ul><li>
+<p>Required credentials and settings: See <a
+href="https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/sdkconfig.htm">SDK
+and Tool Configuration</a> in the User Guide.</p>
+</li><li>
+<p>Optional SDK-specific settings: See the <span class='object_link'><a href="OracleBMC/Config.html" title="OracleBMC::Config (class)">Config</a></span> object
+for the full list of config options.</p>
+</li></ul>
+
+<h2 id="label-Writing+Your+First+Ruby+Program+with+the+SDK">Writing Your First Ruby Program with the SDK</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='rubyid_require identifier id'>require</span> <span class='string val'>&#39;oraclebmc&#39;</span>
+
+<span class='comment val'># This will load the config file at the default location, and will</span>
+<span class='comment val'># use the tenancy from that config as the compartment in the</span>
+<span class='comment val'># call to list_users.</span>
+<span class='rubyid_api identifier id'>api</span> <span class='assign token'>=</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='colon2 op'>::</span><span class='rubyid_Identity constant id'>Identity</span><span class='colon2 op'>::</span><span class='rubyid_IdentityClient constant id'>IdentityClient</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='label val'>region:</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='colon2 op'>::</span><span class='rubyid_Regions constant id'>Regions</span><span class='colon2 op'>::</span><span class='rubyid_REGION_US_PHOENIX_1 constant id'>REGION_US_PHOENIX_1</span><span class='rparen token'>)</span>
+<span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_list_users identifier id'>list_users</span><span class='lparen token'>(</span><span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_tenancy identifier id'>tenancy</span><span class='rparen token'>)</span>
+<span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_user identifier id'>user</span><span class='bitor op'>|</span> <span class='rubyid_puts identifier id'>puts</span> <span class='rubyid_user identifier id'>user</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span> <span class='rbrace token'>}</span>
+</code></pre>
+
+<h2 id="label-Loading+Alternate+Configurations">Loading Alternate Configurations</h2>
+
+<p>You can also load a config file from a different location, and/or specify a
+different profile from the config file:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='rubyid_require identifier id'>require</span> <span class='string val'>&#39;oraclebmc&#39;</span>
+
+<span class='rubyid_my_config identifier id'>my_config</span> <span class='assign token'>=</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='colon2 op'>::</span><span class='rubyid_ConfigFileLoader constant id'>ConfigFileLoader</span><span class='dot token'>.</span><span class='rubyid_load_config identifier id'>load_config</span><span class='lparen token'>(</span><span class='label val'>config_file_location:</span><span class='string val'>&#39;my_config&#39;</span><span class='comma token'>,</span> <span class='label val'>profile_name:</span><span class='string val'>&#39;USER_TWO&#39;</span><span class='rparen token'>)</span>
+<span class='rubyid_api identifier id'>api</span> <span class='assign token'>=</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='colon2 op'>::</span><span class='rubyid_Identity constant id'>Identity</span><span class='colon2 op'>::</span><span class='rubyid_IdentityClient constant id'>IdentityClient</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='label val'>config:</span><span class='rubyid_my_config identifier id'>my_config</span><span class='rparen token'>)</span>
+<span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_get_user identifier id'>get_user</span><span class='lparen token'>(</span><span class='rubyid_my_config identifier id'>my_config</span><span class='dot token'>.</span><span class='rubyid_user identifier id'>user</span><span class='rparen token'>)</span>
+<span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&#39;User Name: &#39;</span> <span class='plus op'>+</span> <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span>
+</code></pre>
+
+<p>Or you can create a <span class='object_link'><a href="OracleBMC/Config.html" title="OracleBMC::Config (class)">Config</a></span> programmatically. Note that
+the global value OracleBMC.config will always attempt to
+load the DEFAULT profile from the default config file location
+(<code>~/.oraclebmc/config</code>), unless it has been explicitly set to
+another value.</p>
+
+<h2 id="label-Examples">Examples</h2>
+
+<p>The example code in this section shows how various parts of the Ruby SDK
+work. More examples can be found in the SDK download.</p>
+
+<h3 id="label-Identity+Operations">Identity Operations</h3>
+
+<p>The following example runs create, read, update, and delete (CRUD)
+operations on users.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='rubyid_require identifier id'>require</span> <span class='string val'>&#39;oraclebmc&#39;</span>
+
+<span class='rubyid_compartment identifier id'>compartment</span> <span class='assign token'>=</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_tenancy identifier id'>tenancy</span>
+
+<span class='rubyid_api identifier id'>api</span> <span class='assign token'>=</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='colon2 op'>::</span><span class='rubyid_Identity constant id'>Identity</span><span class='colon2 op'>::</span><span class='rubyid_IdentityClient constant id'>IdentityClient</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
+<span class='rubyid_users identifier id'>users</span> <span class='assign token'>=</span> <span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_list_users identifier id'>list_users</span><span class='lparen token'>(</span><span class='rubyid_compartment_id identifier id'>compartment_id</span> <span class='assign token'>=</span> <span class='rubyid_compartment identifier id'>compartment</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span>
+<span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;There are currently &quot;</span> <span class='plus op'>+</span> <span class='rubyid_users identifier id'>users</span><span class='dot token'>.</span><span class='rubyid_length identifier id'>length</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span> <span class='plus op'>+</span> <span class='string val'>&quot; users.&quot;</span>
+
+<span class='comment val'># Create User</span>
+<span class='rubyid_request identifier id'>request</span> <span class='assign token'>=</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='colon2 op'>::</span><span class='rubyid_Identity constant id'>Identity</span><span class='colon2 op'>::</span><span class='rubyid_Models constant id'>Models</span><span class='colon2 op'>::</span><span class='rubyid_CreateUserDetails constant id'>CreateUserDetails</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
+<span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_compartment_id identifier id'>compartment_id</span> <span class='assign token'>=</span> <span class='rubyid_compartment identifier id'>compartment</span>
+<span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span> <span class='assign token'>=</span> <span class='string val'>&quot;userA&quot;</span>
+<span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_description identifier id'>description</span> <span class='assign token'>=</span> <span class='string val'>&quot;example user&quot;</span>
+<span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span>  <span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_create_user identifier id'>create_user</span><span class='lparen token'>(</span><span class='rubyid_request identifier id'>request</span><span class='rparen token'>)</span>
+
+<span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;Created user &quot;</span> <span class='plus op'>+</span> <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span>
+<span class='rubyid_user_id identifier id'>user_id</span> <span class='assign token'>=</span> <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span>
+
+<span class='rubyid_users identifier id'>users</span> <span class='assign token'>=</span> <span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_list_users identifier id'>list_users</span><span class='lparen token'>(</span><span class='rubyid_compartment_id identifier id'>compartment_id</span> <span class='assign token'>=</span> <span class='rubyid_compartment identifier id'>compartment</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span>
+<span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;There are now &quot;</span> <span class='plus op'>+</span> <span class='rubyid_users identifier id'>users</span><span class='dot token'>.</span><span class='rubyid_length identifier id'>length</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span> <span class='plus op'>+</span> <span class='string val'>&quot; users.&quot;</span>
+
+<span class='comment val'># Get User</span>
+<span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span>  <span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_get_user identifier id'>get_user</span><span class='lparen token'>(</span><span class='rubyid_user_id identifier id'>user_id</span> <span class='assign token'>=</span> <span class='rubyid_user_id identifier id'>user_id</span><span class='rparen token'>)</span>
+
+<span class='comment val'># Update User (using a request object)</span>
+<span class='rubyid_newDescription identifier id'>newDescription</span> <span class='assign token'>=</span> <span class='string val'>&quot;updated user description&quot;</span>
+<span class='rubyid_request identifier id'>request</span> <span class='assign token'>=</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='colon2 op'>::</span><span class='rubyid_Identity constant id'>Identity</span><span class='colon2 op'>::</span><span class='rubyid_Models constant id'>Models</span><span class='colon2 op'>::</span><span class='rubyid_UpdateUserDetails constant id'>UpdateUserDetails</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
+<span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_description identifier id'>description</span> <span class='assign token'>=</span> <span class='string val'>&quot;Updated description&quot;</span>
+<span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_update_user identifier id'>update_user</span><span class='lparen token'>(</span><span class='rubyid_user_id identifier id'>user_id</span><span class='comma token'>,</span> <span class='rubyid_request identifier id'>request</span><span class='rparen token'>)</span>
+
+<span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;Updated description to:&quot;</span> <span class='plus op'>+</span> <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_description identifier id'>description</span>
+
+<span class='comment val'># Update User (using a hash)</span>
+<span class='rubyid_newDescription identifier id'>newDescription</span> <span class='assign token'>=</span> <span class='string val'>&quot;updated without a request object&quot;</span>
+<span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_update_user identifier id'>update_user</span><span class='lparen token'>(</span><span class='rubyid_user_id identifier id'>user_id</span><span class='comma token'>,</span> <span class='lbrace token'>{</span> <span class='label val'>description:</span> <span class='string val'>&quot;Updated again, but using a hash instead of an object.&quot;</span> <span class='rbrace token'>}</span><span class='rparen token'>)</span>
+
+<span class='comment val'># Delete User</span>
+<span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_delete_user identifier id'>delete_user</span><span class='lparen token'>(</span><span class='rubyid_user_id identifier id'>user_id</span><span class='rparen token'>)</span>
+
+<span class='rubyid_users identifier id'>users</span> <span class='assign token'>=</span> <span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_list_users identifier id'>list_users</span><span class='lparen token'>(</span><span class='rubyid_compartment_id identifier id'>compartment_id</span> <span class='assign token'>=</span> <span class='rubyid_compartment identifier id'>compartment</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span>
+<span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;Back to &quot;</span> <span class='plus op'>+</span> <span class='rubyid_users identifier id'>users</span><span class='dot token'>.</span><span class='rubyid_length identifier id'>length</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span> <span class='plus op'>+</span> <span class='string val'>&quot; users.&quot;</span>
+</code></pre>
+
+<h3 id="label-Paging+Through+Results">Paging Through Results</h3>
+
+<p>The following example shows how to page through results. It also gives an
+example of supplying optional parameters.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='rubyid_require identifier id'>require</span> <span class='string val'>&#39;oraclebmc&#39;</span>
+
+<span class='rubyid_api identifier id'>api</span> <span class='assign token'>=</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='colon2 op'>::</span><span class='rubyid_Identity constant id'>Identity</span><span class='colon2 op'>::</span><span class='rubyid_IdentityClient constant id'>IdentityClient</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
+<span class='rubyid_compartment identifier id'>compartment</span> <span class='assign token'>=</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_tenancy identifier id'>tenancy</span>
+
+<span class='comment val'>### Automatic paging:</span>
+<span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_list_users identifier id'>list_users</span><span class='lparen token'>(</span><span class='rubyid_compartment identifier id'>compartment</span><span class='comma token'>,</span> <span class='label val'>limit:</span><span class='string val'>&#39;3&#39;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_r identifier id'>r</span><span class='bitor op'>|</span> <span class='rubyid_r identifier id'>r</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_user identifier id'>user</span><span class='bitor op'>|</span> <span class='rubyid_puts identifier id'>puts</span> <span class='rubyid_user identifier id'>user</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span> <span class='rbrace token'>}</span><span class='rbrace token'>}</span>
+
+<span class='comment val'>### Manual paging:</span>
+<span class='rubyid_request_number identifier id'>request_number</span> <span class='assign token'>=</span> <span class='integer val'>0</span>
+<span class='rubyid_next_page identifier id'>next_page</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span>
+
+<span class='rubyid_loop identifier id'>loop</span> <span class='rubyid_do do kw'>do</span>
+  <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_list_users identifier id'>list_users</span><span class='lparen token'>(</span><span class='rubyid_compartment identifier id'>compartment</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='label val'>limit:</span> <span class='string val'>&#39;3&#39;</span><span class='comma token'>,</span> <span class='label val'>page:</span> <span class='rubyid_next_page identifier id'>next_page</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+
+  <span class='rubyid_puts identifier id'>puts</span> <span class='string val'>&quot;Page &quot;</span> <span class='plus op'>+</span> <span class='rubyid_request_number identifier id'>request_number</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span>
+  <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_user identifier id'>user</span><span class='bitor op'>|</span> <span class='rubyid_puts identifier id'>puts</span> <span class='rubyid_user identifier id'>user</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span> <span class='rbrace token'>}</span>
+
+  <span class='rubyid_break break kw'>break</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_has_next_page? fid id'>has_next_page?</span>
+  <span class='rubyid_next_page identifier id'>next_page</span> <span class='assign token'>=</span> <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_next_page identifier id'>next_page</span>
+  <span class='rubyid_request_number identifier id'>request_number</span> <span class='opasgn op'>+=</span> <span class='integer val'>1</span>
+<span class='rubyid_end end kw'>end</span>
+</code></pre>
+
+<h3 id="label-Launching+an+Instance+and+Waiting+for+a+State">Launching an Instance and Waiting for a State</h3>
+
+<p>The following example shows how to launch an instance (which assumes that
+you already have a subnet created), and then wait until the instance is
+running.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='rubyid_require identifier id'>require</span> <span class='string val'>&#39;oraclebmc&#39;</span>
+
+<span class='rubyid_ssh_public_key identifier id'>ssh_public_key</span> <span class='assign token'>=</span> <span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_open identifier id'>open</span><span class='lparen token'>(</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_expand_path identifier id'>expand_path</span><span class='lparen token'>(</span><span class='rubyid_public_key_file identifier id'>public_key_file</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='string val'>&quot;rb&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_read identifier id'>read</span>
+
+<span class='rubyid_request identifier id'>request</span> <span class='assign token'>=</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='colon2 op'>::</span><span class='rubyid_Core constant id'>Core</span><span class='colon2 op'>::</span><span class='rubyid_Models constant id'>Models</span><span class='colon2 op'>::</span><span class='rubyid_LaunchInstanceDetails constant id'>LaunchInstanceDetails</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
+<span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_availability_domain identifier id'>availability_domain</span> <span class='assign token'>=</span> <span class='rubyid_availability_domain identifier id'>availability_domain</span> <span class='comment val'># TODO: Set an availability domain, such as &#39;kIdk:PHX-AD-2&#39;</span>
+<span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_compartment_id identifier id'>compartment_id</span> <span class='assign token'>=</span> <span class='rubyid_compartment_id identifier id'>compartment_id</span> <span class='comment val'># TODO: set your compartment ID here</span>
+<span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_display_name identifier id'>display_name</span> <span class='assign token'>=</span> <span class='string val'>&#39;my_instance&#39;</span>
+<span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_image_id identifier id'>image_id</span> <span class='assign token'>=</span> <span class='string val'>&#39;ocid1.image.oc1.phx.aaaaaaaa4wdx32cwjdjdwoefzatmvlxbef4673rs5y7cowvc3g3o7iwhmhfa&#39;</span>
+<span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_shape identifier id'>shape</span> <span class='assign token'>=</span> <span class='string val'>&#39;x5-2.36.256&#39;</span>
+<span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_subnet_id identifier id'>subnet_id</span> <span class='assign token'>=</span> <span class='rubyid_subnet_id identifier id'>subnet_id</span> <span class='comment val'># TODO: set your subnet ID here</span>
+<span class='rubyid_request identifier id'>request</span><span class='dot token'>.</span><span class='rubyid_metadata identifier id'>metadata</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='string val'>&#39;ssh_authorized_keys&#39;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_ssh_public_key identifier id'>ssh_public_key</span><span class='rbrace token'>}</span>
+
+<span class='rubyid_api identifier id'>api</span> <span class='assign token'>=</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='colon2 op'>::</span><span class='rubyid_Core constant id'>Core</span><span class='colon2 op'>::</span><span class='rubyid_ComputeClient constant id'>ComputeClient</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
+<span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_launch_instance identifier id'>launch_instance</span><span class='lparen token'>(</span><span class='rubyid_request identifier id'>request</span><span class='rparen token'>)</span>
+<span class='rubyid_instance_id identifier id'>instance_id</span> <span class='assign token'>=</span> <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span>
+<span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_api identifier id'>api</span><span class='dot token'>.</span><span class='rubyid_get_instance identifier id'>get_instance</span><span class='lparen token'>(</span><span class='rubyid_instance_id identifier id'>instance_id</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_wait_until identifier id'>wait_until</span><span class='lparen token'>(</span><span class='symbol val'>:lifecycle_state</span><span class='comma token'>,</span> <span class='rubyid_OracleBMC constant id'>OracleBMC</span><span class='colon2 op'>::</span><span class='rubyid_Core constant id'>Core</span><span class='colon2 op'>::</span><span class='rubyid_Models constant id'>Models</span><span class='colon2 op'>::</span><span class='rubyid_Instance constant id'>Instance</span><span class='colon2 op'>::</span><span class='rubyid_LIFECYCLE_STATE_RUNNING constant id'>LIFECYCLE_STATE_RUNNING</span><span class='rparen token'>)</span>
+</code></pre>
+
+<h2 id="label-Questions+or+Feedback-3F">Questions or Feedback?</h2>
+
+<p>Ways to get in touch:</p>
+<ul><li>
+<p><a href="https://stackoverflow.com/">Stack Overflow</a>: Please use the
+“oracle-bmcs” and “oracle-bmcs-ruby-sdk” tags in your post</p>
+</li><li>
+<p><a
+href="https://community.oracle.com/community/cloud_computing/bare-metal/content?filterID=contentstatus%5Bpublished%5D~category%5Bdeveloper-tools%5D">Developer
+Tools section</a> of the Oracle Cloud forums</p>
+</li><li>
+<p><a href="https://support.oracle.com">My Oracle Support</a></p>
+</li></ul>
+</div></div>
+
+    <div id="footer">
+  Generated on Fri Nov 18 03:54:11 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.4).
+</div>
+
+  </body>
+</html>

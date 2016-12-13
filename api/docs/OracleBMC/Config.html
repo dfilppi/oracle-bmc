@@ -1,0 +1,1150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: OracleBMC::Config
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!OracleBMC/Config.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../OracleBMC.html" title="OracleBMC (module)">OracleBMC</a></span></span>
+     &raquo; 
+    <span class="title">Config</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: OracleBMC::Config
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">OracleBMC::Config</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/oraclebmc/config.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#additional_user_agent-instance_method" title="#additional_user_agent (instance method)">- (String) <strong>additional_user_agent</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>If set, then this string will be added to the user agent sent with each
+request.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#connection_timeout-instance_method" title="#connection_timeout (instance method)">- (Integer) <strong>connection_timeout</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The time limit for the connection phase in seconds.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fingerprint-instance_method" title="#fingerprint (instance method)">- (String) <strong>fingerprint</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SSL Fingerprint to use for authentication.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#key_file-instance_method" title="#key_file (instance method)">- (String) <strong>key_file</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Client private key file.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#log_requests-instance_method" title="#log_requests (instance method)">- (true, false) <strong>log_requests</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Whether to log detailed request and response data.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#logger-instance_method" title="#logger (instance method)">- (Logger) <strong>logger</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Defines the logger used for debugging.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pass_phrase-instance_method" title="#pass_phrase (instance method)">- (String) <strong>pass_phrase</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Pass phrase used for key file, if it is encrypted.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#region-instance_method" title="#region (instance method)">- (OracleBMC::Regions::REGION_ENUM) <strong>region</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A region to use for APIs created with this Config.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tenancy-instance_method" title="#tenancy (instance method)">- (String) <strong>tenancy</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>OCID of the tenancy to use for authentication.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#timeout-instance_method" title="#timeout (instance method)">- (Integer) <strong>timeout</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The time limit for HTTP request in seconds.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user-instance_method" title="#user (instance method)">- (String) <strong>user</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>OCID of the user to use for authentication.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Config) <strong>initialize</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Config.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="OracleBMC::Config (class)">Config</a></span></tt>) <strong>initialize</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of Config</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74
+75
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/config.rb', line 74</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span>
+  <span class='rubyid_@timeout ivar id'>@timeout</span> <span class='assign token'>=</span> <span class='integer val'>0</span>
+  <span class='rubyid_@connection_timeout ivar id'>@connection_timeout</span> <span class='assign token'>=</span> <span class='integer val'>10</span>
+  <span class='rubyid_@log_requests ivar id'>@log_requests</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="additional_user_agent=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="additional_user_agent-instance_method">
+  
+    - (<tt>String</tt>) <strong>additional_user_agent</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>If set, then this string will be added to the user agent sent with each
+request.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/config.rb', line 72</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_additional_user_agent identifier id'>additional_user_agent</span>
+  <span class='rubyid_@additional_user_agent ivar id'>@additional_user_agent</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="connection_timeout=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="connection_timeout-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>connection_timeout</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The time limit for the connection phase in seconds. Defaults to 10 seconds.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/config.rb', line 66</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_connection_timeout identifier id'>connection_timeout</span>
+  <span class='rubyid_@connection_timeout ivar id'>@connection_timeout</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="fingerprint=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="fingerprint-instance_method">
+  
+    - (<tt>String</tt>) <strong>fingerprint</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SSL Fingerprint to use for authentication. Example:
+20:3b:97:13:55:1c:1c:0d:d3:37:d8:50:4e:c5:3a:12</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/config.rb', line 18</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_fingerprint identifier id'>fingerprint</span>
+  <span class='rubyid_@fingerprint ivar id'>@fingerprint</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="key_file=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="key_file-instance_method">
+  
+    - (<tt>String</tt>) <strong>key_file</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Client private key file. Example: ~/.ssh/bmc_key</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/config.rb', line 30</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_key_file identifier id'>key_file</span>
+  <span class='rubyid_@key_file ivar id'>@key_file</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="log_requests=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="log_requests-instance_method">
+  
+    - (<tt>true</tt>, <tt>false</tt>) <strong>log_requests</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Whether to log detailed request and response data. This will always write
+to STDOUT. Defaults to false.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>true</tt>, <tt>false</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/config.rb', line 54</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_log_requests identifier id'>log_requests</span>
+  <span class='rubyid_@log_requests ivar id'>@log_requests</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="logger=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="logger-instance_method">
+  
+    - (<tt>Logger</tt>) <strong>logger</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the logger used for debugging. For example, log to STDOUT by
+setting this to Logger.new(STDOUT). This property cannot be set from a
+config file.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Logger</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/config.rb', line 47</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_logger identifier id'>logger</span>
+  <span class='rubyid_@logger ivar id'>@logger</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pass_phrase=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pass_phrase-instance_method">
+  
+    - (<tt>String</tt>) <strong>pass_phrase</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Pass phrase used for key file, if it is encrypted.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/config.rb', line 35</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_pass_phrase identifier id'>pass_phrase</span>
+  <span class='rubyid_@pass_phrase ivar id'>@pass_phrase</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="region=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="region-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Regions.html#REGION_ENUM-constant" title="OracleBMC::Regions::REGION_ENUM (constant)">OracleBMC::Regions::REGION_ENUM</a></span></tt>) <strong>region</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A region to use for APIs created with this Config.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Regions.html#REGION_ENUM-constant" title="OracleBMC::Regions::REGION_ENUM (constant)">OracleBMC::Regions::REGION_ENUM</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/config.rb', line 40</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_region identifier id'>region</span>
+  <span class='rubyid_@region ivar id'>@region</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="tenancy=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="tenancy-instance_method">
+  
+    - (<tt>String</tt>) <strong>tenancy</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>OCID of the tenancy to use for authentication. Example:
+ocid1.tenancy.oc1..aaaaaaaaba3pv6wkcr4jqae5f15p2b2m2yt2j6rx32uzr4h25vqstifsfdsq</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/config.rb', line 24</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_tenancy identifier id'>tenancy</span>
+  <span class='rubyid_@tenancy ivar id'>@tenancy</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="timeout=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="timeout-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>timeout</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The time limit for HTTP request in seconds. Defaults to 0 (never times
+out).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/config.rb', line 60</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_timeout identifier id'>timeout</span>
+  <span class='rubyid_@timeout ivar id'>@timeout</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="user=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="user-instance_method">
+  
+    - (<tt>String</tt>) <strong>user</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>OCID of the user to use for authentication. Example:
+ocidv1:user:oc1:phx:1460406592659:aaaaaaaawcbqrkycbolrirg2n3xjl5fabc</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/config.rb', line 12</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_user identifier id'>user</span>
+  <span class='rubyid_@user ivar id'>@user</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+</div>
+
+    <div id="footer">
+  Generated on Fri Nov 18 03:54:11 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.4).
+</div>
+
+  </body>
+</html>

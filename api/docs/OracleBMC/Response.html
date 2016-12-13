@@ -1,0 +1,1247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: OracleBMC::Response
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!OracleBMC/Response.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (R)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../OracleBMC.html" title="OracleBMC (module)">OracleBMC</a></span></span>
+     &raquo; 
+    <span class="title">Response</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: OracleBMC::Response
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">OracleBMC::Response</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2">Enumerable</dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/oraclebmc/response.rb<span class="defines">,<br />
+  lib/oraclebmc/waiter.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A response, which represents all successful API calls.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#data-instance_method" title="#data (instance method)">- (Object) <strong>data</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The body of the response.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#headers-instance_method" title="#headers (instance method)">- (Hash) <strong>headers</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A hash containing all response headers.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#next_page-instance_method" title="#next_page (instance method)">- (String) <strong>next_page</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of the next page token, if available, taken from the
+opc-next-page header.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#request_id-instance_method" title="#request_id (instance method)">- (String) <strong>request_id</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The request ID, taken from the opc-request-id header.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#status-instance_method" title="#status (instance method)">- (Integer) <strong>status</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The HTTP status, such as 200, 401, etc.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#api_call%3D-instance_method" title="#api_call= (instance method)">- (Object) <strong>api_call=</strong>(c) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each-instance_method" title="#each (instance method)">- (Object) <strong>each</strong> {|response| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>For paged responses, yields each page until the last page is reached.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#has_next_page%3F-instance_method" title="#has_next_page? (instance method)">- (Boolean) <strong>has_next_page?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if there is another page available.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Response) <strong>initialize</strong>(status, headers, data) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Response.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wait_until-instance_method" title="#wait_until (instance method)">- (Response) <strong>wait_until</strong>(property, state, max_interval_seconds: 30, max_wait_seconds: 1200) {|response| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Wait until the value of the given property in the response data has the
+given value.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="OracleBMC::Response (class)">Response</a></span></tt>) <strong>initialize</strong>(status, headers, data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of Response</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/response.rb', line 32</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_status identifier id'>status</span><span class='comma token'>,</span> <span class='rubyid_headers identifier id'>headers</span><span class='comma token'>,</span> <span class='rubyid_data identifier id'>data</span><span class='rparen token'>)</span>
+  <span class='rubyid_@status ivar id'>@status</span> <span class='assign token'>=</span> <span class='rubyid_status identifier id'>status</span>
+  <span class='rubyid_@headers ivar id'>@headers</span> <span class='assign token'>=</span> <span class='rubyid_headers identifier id'>headers</span>
+  <span class='rubyid_@data ivar id'>@data</span> <span class='assign token'>=</span> <span class='rubyid_data identifier id'>data</span>
+
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_headers identifier id'>headers</span>
+    <span class='rubyid_@next_page ivar id'>@next_page</span> <span class='assign token'>=</span> <span class='rubyid_headers identifier id'>headers</span><span class='lbrack token'>[</span><span class='string val'>&quot;opc-next-page&quot;</span><span class='rbrack token'>]</span>
+    <span class='rubyid_@request_id ivar id'>@request_id</span> <span class='assign token'>=</span> <span class='rubyid_headers identifier id'>headers</span><span class='lbrack token'>[</span><span class='string val'>&quot;opc-request-id&quot;</span><span class='rbrack token'>]</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="data-instance_method">
+  
+    - (<tt>Object</tt>) <strong>data</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The body of the response. For example, this may contain a User object, or a
+list of Users.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/response.rb', line 19</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_data identifier id'>data</span>
+  <span class='rubyid_@data ivar id'>@data</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="headers-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>headers</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A hash containing all response headers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/response.rb', line 15</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_headers identifier id'>headers</span>
+  <span class='rubyid_@headers ivar id'>@headers</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="next_page-instance_method">
+  
+    - (<tt>String</tt>) <strong>next_page</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The value of the next page token, if available, taken from the
+opc-next-page header.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/response.rb', line 25</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_next_page identifier id'>next_page</span>
+  <span class='rubyid_@next_page ivar id'>@next_page</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="request_id-instance_method">
+  
+    - (<tt>String</tt>) <strong>request_id</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The request ID, taken from the opc-request-id header.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/response.rb', line 30</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_request_id identifier id'>request_id</span>
+  <span class='rubyid_@request_id ivar id'>@request_id</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="status-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>status</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The HTTP status, such as 200, 401, etc</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/response.rb', line 10</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_status identifier id'>status</span>
+  <span class='rubyid_@status ivar id'>@status</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="api_call=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>api_call=</strong>(c) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/response.rb', line 81</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_api_call= identifier id'>api_call=</span><span class='lparen token'>(</span><span class='rubyid_c identifier id'>c</span><span class='rparen token'>)</span>
+  <span class='rubyid_@api_call ivar id'>@api_call</span> <span class='assign token'>=</span> <span class='rubyid_c identifier id'>c</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="each-instance_method">
+  
+    - (<tt>Object</tt>) <strong>each</strong> {|response| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>For paged responses, yields each page until the last page is reached. For
+example:</p>
+
+<pre class="code ruby18"><code class="ruby18">OracleBMC::Identity::IdentityClient.new.list_users(compartment, limit:&#39;3&#39;).each { |r| r.data.each { |user| puts user.name }}
+</code></pre>
+
+<p>The first response yielded is always the response that &#39;each&#39; is
+being called on.</p>
+
+<p>If any of the requests result in an error, that error will be thrown as
+normal, which will abort the enumeration.</p>
+
+<p>While this can be called on non-paged responses, it will simply result in
+the response itself being yielded.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>response</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="OracleBMC::Response (class)">Response</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A response object for each page, starting with the response used to call
+&#39;each&#39;.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/response.rb', line 65</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_each identifier id'>each</span>
+  <span class='rubyid_yield yield kw'>yield</span> <span class='rubyid_self self kw'>self</span>
+  <span class='rubyid_page identifier id'>page</span> <span class='assign token'>=</span> <span class='rubyid_@next_page ivar id'>@next_page</span>
+
+  <span class='rubyid_while while kw'>while</span> <span class='rubyid_@api_call ivar id'>@api_call</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_page identifier id'>page</span>
+    <span class='rubyid_next_response identifier id'>next_response</span> <span class='assign token'>=</span> <span class='rubyid_@api_call ivar id'>@api_call</span><span class='dot token'>.</span><span class='rubyid_call identifier id'>call</span><span class='lparen token'>(</span><span class='rubyid_page identifier id'>page</span><span class='rparen token'>)</span>
+
+    <span class='rubyid_if if kw'>if</span> <span class='rubyid_page identifier id'>page</span> <span class='eq op'>==</span> <span class='rubyid_next_response identifier id'>next_response</span><span class='dot token'>.</span><span class='rubyid_next_page identifier id'>next_page</span>
+      <span class='rubyid_fail identifier id'>fail</span> <span class='string val'>&quot;Paging failure: Two consecutive responses had the same next page token.&quot;</span>
+    <span class='rubyid_end end kw'>end</span>
+
+    <span class='rubyid_page identifier id'>page</span> <span class='assign token'>=</span> <span class='rubyid_next_response identifier id'>next_response</span><span class='dot token'>.</span><span class='rubyid_next_page identifier id'>next_page</span>
+    <span class='rubyid_yield yield kw'>yield</span> <span class='rubyid_next_response identifier id'>next_response</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="has_next_page?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>has_next_page?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if there is another page available.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/response.rb', line 44</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_has_next_page? fid id'>has_next_page?</span>
+  <span class='rubyid_return return kw'>return</span> <span class='notop op'>!</span><span class='rubyid_next_page identifier id'>next_page</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="wait_until-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="OracleBMC::Response (class)">Response</a></span></tt>) <strong>wait_until</strong>(property, state, max_interval_seconds: 30, max_wait_seconds: 1200) {|response| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Wait until the value of the given property in the response data has the
+given value. This will block the current thread until the the desired state
+is reached, the maximum wait time is reached, or the optional yield block
+throws :stop_succeed or :stop_fail. This is only supported for responses
+resulting from GET operations. A typical use case is to wait on an instance
+until it is in a running state:</p>
+
+<pre class="code ruby18"><code class="ruby18">compute_client.get_instance(@instance_id).wait_until(:lifecycle_state, OracleBMC::Core::Models::Instance::LIFECYCLE_STATE_RUNNING)
+</code></pre>
+
+<p>Although this can be run on any property of the data resulting from any GET
+operation, the most common use case is to check state properties on
+operations that GET a single object.</p>
+
+<p>The wait will poll at an increasing interval up to
+&#39;max_interval_seconds&#39; for a maximum total time of
+&#39;max_wait_seconds&#39;. If the maximum time is exceeded, then it will
+raise a <span class='object_link'><a href="Waiter/Errors/MaximumWaitTimeExceededError.html" title="OracleBMC::Waiter::Errors::MaximumWaitTimeExceededError (class)">Waiter::Errors::MaximumWaitTimeExceededError</a></span>.</p>
+
+<p>On successful completion the final Response object will be returned. The
+original Response object will not be altered.</p>
+
+<p>If any responses result in an error, then the error will be thrown as
+normal resulting in the wait being aborted.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>property</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The property of the response data to evaluate. For example,
+:lifecycle_state.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>state</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The value of the property that will indicate successful completion of the
+wait.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>max_interval_seconds</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The maximum interval between queries, in seconds.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>max_wait_seconds</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The maximum time to wait, in seconds.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>response</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="OracleBMC::Response (class)">Response</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A response object for every additional successful call to the get request.
+Throw :stop_succeed from the yield to stop the waiter and return the
+current response. Throw :stop_fail from the yield to stop the waiter and
+throw a WaiterFailedError.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="OracleBMC::Response (class)">Response</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The final response, which will contain the property in the specified state.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Waiter/Errors/WaitUntilNotSupportedError.html" title="OracleBMC::Waiter::Errors::WaitUntilNotSupportedError (class)">Waiter::Errors::WaitUntilNotSupportedError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/waiter.rb', line 53</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_wait_until identifier id'>wait_until</span><span class='lparen token'>(</span><span class='rubyid_property identifier id'>property</span><span class='comma token'>,</span> <span class='rubyid_state identifier id'>state</span><span class='comma token'>,</span> <span class='label val'>max_interval_seconds:</span> <span class='integer val'>30</span><span class='comma token'>,</span> <span class='label val'>max_wait_seconds:</span> <span class='integer val'>1200</span><span class='rparen token'>)</span>
+  <span class='rubyid_fail identifier id'>fail</span> <span class='string val'>&#39;Cannot wait on a response without data.&#39;</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span>
+  <span class='rubyid_fail identifier id'>fail</span> <span class='string val'>&#39;Response data does not contain the given property.&#39;</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_methods identifier id'>methods</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span> <span class='rubyid_property identifier id'>property</span>
+
+  <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Waiter constant id'>Waiter</span><span class='colon2 op'>::</span><span class='rubyid_Errors constant id'>Errors</span><span class='colon2 op'>::</span><span class='rubyid_WaitUntilNotSupportedError constant id'>WaitUntilNotSupportedError</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&#39;wait_until is not supported by this response.&#39;</span><span class='rparen token'>)</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_@api_call ivar id'>@api_call</span>
+
+  <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span>
+  <span class='rubyid_count identifier id'>count</span> <span class='assign token'>=</span> <span class='integer val'>0</span>
+  <span class='rubyid_interval_seconds identifier id'>interval_seconds</span> <span class='assign token'>=</span> <span class='integer val'>1</span>
+  <span class='rubyid_start_time identifier id'>start_time</span> <span class='assign token'>=</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span>
+
+  <span class='rubyid_while while kw'>while</span> <span class='rubyid_true true kw'>true</span>
+    <span class='rubyid_if if kw'>if</span> <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_property identifier id'>property</span><span class='rparen token'>)</span> <span class='eq op'>==</span> <span class='rubyid_state identifier id'>state</span>
+       <span class='rubyid_return return kw'>return</span> <span class='rubyid_response identifier id'>response</span>
+    <span class='rubyid_end end kw'>end</span>
+
+    <span class='rubyid_elapsed_seconds identifier id'>elapsed_seconds</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span> <span class='minus op'>-</span> <span class='rubyid_start_time identifier id'>start_time</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_to_i identifier id'>to_i</span>
+
+    <span class='rubyid_if if kw'>if</span> <span class='rubyid_elapsed_seconds identifier id'>elapsed_seconds</span> <span class='plus op'>+</span> <span class='rubyid_interval_seconds identifier id'>interval_seconds</span> <span class='gt op'>&gt;</span> <span class='rubyid_max_wait_seconds identifier id'>max_wait_seconds</span>
+      <span class='rubyid_if if kw'>if</span> <span class='rubyid_max_wait_seconds identifier id'>max_wait_seconds</span> <span class='gt op'>&gt;</span> <span class='rubyid_elapsed_seconds identifier id'>elapsed_seconds</span>
+        <span class='comment val'># Make one last request right at the maximum wait time.</span>
+        <span class='rubyid_interval_seconds identifier id'>interval_seconds</span> <span class='assign token'>=</span> <span class='rubyid_max_wait_seconds identifier id'>max_wait_seconds</span> <span class='minus op'>-</span> <span class='rubyid_elapsed_seconds identifier id'>elapsed_seconds</span>
+      <span class='rubyid_else else kw'>else</span>
+        <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Waiter constant id'>Waiter</span><span class='colon2 op'>::</span><span class='rubyid_Errors constant id'>Errors</span><span class='colon2 op'>::</span><span class='rubyid_MaximumWaitTimeExceededError constant id'>MaximumWaitTimeExceededError</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&#39;Maximum wait time has been exceeded.&#39;</span><span class='rparen token'>)</span>
+      <span class='rubyid_end end kw'>end</span>
+    <span class='rubyid_end end kw'>end</span>
+
+    <span class='rubyid_sleep identifier id'>sleep</span><span class='lparen token'>(</span><span class='rubyid_interval_seconds identifier id'>interval_seconds</span><span class='rparen token'>)</span>
+
+    <span class='rubyid_interval_seconds identifier id'>interval_seconds</span> <span class='opasgn op'>*=</span> <span class='integer val'>2</span>
+    <span class='rubyid_if if kw'>if</span> <span class='rubyid_interval_seconds identifier id'>interval_seconds</span> <span class='gt op'>&gt;</span> <span class='rubyid_max_interval_seconds identifier id'>max_interval_seconds</span>
+      <span class='rubyid_interval_seconds identifier id'>interval_seconds</span> <span class='assign token'>=</span> <span class='rubyid_max_interval_seconds identifier id'>max_interval_seconds</span>
+    <span class='rubyid_end end kw'>end</span>
+
+    <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_@api_call ivar id'>@api_call</span><span class='dot token'>.</span><span class='rubyid_call identifier id'>call</span><span class='lparen token'>(</span><span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+
+    <span class='rubyid_if if kw'>if</span> <span class='rubyid_block_given? fid id'>block_given?</span>
+      <span class='rubyid_continue identifier id'>continue</span> <span class='assign token'>=</span> <span class='rubyid_FALSE constant id'>FALSE</span>
+      <span class='rubyid_catch identifier id'>catch</span><span class='lparen token'>(</span><span class='symbol val'>:stop_fail</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span>
+        <span class='rubyid_catch identifier id'>catch</span><span class='lparen token'>(</span><span class='symbol val'>:stop_succeed</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span>
+          <span class='rubyid_yield yield kw'>yield</span> <span class='rubyid_response identifier id'>response</span>
+          <span class='rubyid_continue identifier id'>continue</span> <span class='assign token'>=</span> <span class='rubyid_TRUE constant id'>TRUE</span>
+        <span class='rbrace token'>}</span>
+
+        <span class='rubyid_if if kw'>if</span> <span class='rubyid_not not kw'>not</span> <span class='rubyid_continue identifier id'>continue</span>
+          <span class='rubyid_return return kw'>return</span> <span class='rubyid_response identifier id'>response</span>
+        <span class='rubyid_end end kw'>end</span>
+      <span class='rbrace token'>}</span>
+
+      <span class='rubyid_if if kw'>if</span> <span class='rubyid_not not kw'>not</span> <span class='rubyid_continue identifier id'>continue</span>
+        <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Waiter constant id'>Waiter</span><span class='colon2 op'>::</span><span class='rubyid_Errors constant id'>Errors</span><span class='colon2 op'>::</span><span class='rubyid_WaiterFailedError constant id'>WaiterFailedError</span>
+      <span class='rubyid_end end kw'>end</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
+
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Fri Nov 18 03:54:11 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.4).
+</div>
+
+  </body>
+</html>

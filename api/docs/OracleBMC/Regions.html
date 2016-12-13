@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: OracleBMC::Regions
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!OracleBMC/Regions.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (R)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../OracleBMC.html" title="OracleBMC (module)">OracleBMC</a></span></span>
+     &raquo; 
+    <span class="title">Regions</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: OracleBMC::Regions
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/oraclebmc/regions.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="REGION_ENUM-constant" class="">REGION_ENUM =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrack token'>[</span><span class='rubyid_REGION_US_PHOENIX_1 constant id'>REGION_US_PHOENIX_1</span> <span class='assign token'>=</span> <span class='string val'>&#39;us-phoenix-1&#39;</span><span class='rbrack token'>]</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_service_endpoint-class_method" title="get_service_endpoint (class method)">+ (String) <strong>get_service_endpoint</strong>(region, service) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an endpoint for the given region and service.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valid_region%3F-class_method" title="valid_region? (class method)">+ (Boolean) <strong>valid_region?</strong>(region) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if the given string corresponds to a known region, as defined
+in <span class='object_link'><a href="#REGION_ENUM-constant" title="OracleBMC::Regions::REGION_ENUM (constant)">REGION_ENUM</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="get_service_endpoint-class_method">
+  
+    + (<tt>String</tt>) <strong>get_service_endpoint</strong>(region, service) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an endpoint for the given region and service.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>region</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A region used to determine the service endpoint. This will usually
+correspond to a value in <span class='object_link'><a href="#REGION_ENUM-constant" title="OracleBMC::Regions::REGION_ENUM (constant)">REGION_ENUM</a></span>, but may be an
+arbitrary string.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A symbol representing a service client class (e.g. :IdentityClient)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A fully qualified endpoint</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/regions.rb', line 15</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_get_service_endpoint identifier id'>get_service_endpoint</span><span class='lparen token'>(</span><span class='rubyid_region identifier id'>region</span><span class='comma token'>,</span> <span class='rubyid_service identifier id'>service</span><span class='rparen token'>)</span>
+  <span class='rubyid_prefix identifier id'>prefix</span> <span class='assign token'>=</span> <span class='rubyid_SERVICE_ENDPOINT_PREFIX_MAPPING constant id'>SERVICE_ENDPOINT_PREFIX_MAPPING</span><span class='lbrack token'>[</span><span class='rubyid_service identifier id'>service</span><span class='rbrack token'>]</span>
+  <span class='rubyid_fail identifier id'>fail</span> <span class='dstring node'>&quot;Service &#39;#{service}&#39; is not supported.&quot;</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_prefix identifier id'>prefix</span>
+  <span class='rubyid_format_endpoint identifier id'>format_endpoint</span><span class='lparen token'>(</span><span class='rubyid_prefix identifier id'>prefix</span><span class='comma token'>,</span> <span class='rubyid_region identifier id'>region</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="valid_region?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>valid_region?</strong>(region) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if the given string corresponds to a known region, as defined
+in <span class='object_link'><a href="#REGION_ENUM-constant" title="OracleBMC::Regions::REGION_ENUM (constant)">REGION_ENUM</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns true if the given string corresponds to a known region, as defined
+in <span class='object_link'><a href="#REGION_ENUM-constant" title="OracleBMC::Regions::REGION_ENUM (constant)">REGION_ENUM</a></span>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/oraclebmc/regions.rb', line 22</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_valid_region? fid id'>valid_region?</span> <span class='rubyid_region identifier id'>region</span>
+  <span class='rubyid_return return kw'>return</span> <span class='rubyid_REGION_ENUM constant id'>REGION_ENUM</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span> <span class='rubyid_region identifier id'>region</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Fri Nov 18 03:54:11 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.4).
+</div>
+
+  </body>
+</html>

@@ -53,4 +53,5 @@ begin
   resp=create_vcn(vcn_client, name, cidr_block, compartment_id)
 
   `ctx instance runtime_properties "vcn" "#{Base64.encode64(Marshal.dump(resp))}"`
+  `ctx instance runtime_properties vcn_id "#{resp.id}"`
 end

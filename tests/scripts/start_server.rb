@@ -22,9 +22,9 @@ def launch_instance(compute_client, name, subnet_id, availability_domain, compar
   response = compute_client.launch_instance(request)
   instance = response.data
 
-  puts "Launched instance '#{instance.display_name}' [#{instance.id}]"
-  print "Waiting to reach running state."
-  $stdout.flush
+  `ctx logger info "Launched instance '#{instance.display_name}' [#{instance.id}]"`
+  `ctx logger info "Waiting to reach running state."`
+  `ctx instance runtime_properties instance_id "#{instance.id}"`
 
   compute_client.get_instance(instance.id).wait_until(:lifecycle_state, OracleBMC::Core::Models::Instance::LIFECYCLE_STATE_RUNNING) { |response|
     if response.data.lifecycle_state == OracleBMC::Core::Models::Instance::LIFECYCLE_STATE_TERMINATED ||

@@ -52,6 +52,8 @@ node_types:
       cloudify.interfaces.lifecycle:
         start:
           implementation: scripts/start_server.rb
+        delete:
+          implementation: scripts/delete_instance.rb
  
   bmc.nodes.Network:
     derived_from: cloudify.nodes.Network
@@ -71,6 +73,9 @@ node_types:
       cloudify.interfaces.lifecycle:
         start:
           implementation: scripts/create_network.rb
+          executor: central_deployment_agent
+        delete:
+          implementation: scripts/delete_network.rb
           executor: central_deployment_agent
 
   bmc.nodes.Subnet:
@@ -93,6 +98,9 @@ node_types:
       cloudify.interfaces.lifecycle:
         start:
           implementation: scripts/create_subnet.rb
+          executor: central_deployment_agent
+        delete:
+          implementation: scripts/delete_subnet.rb
           executor: central_deployment_agent
 
   bmc.nodes.Gateway:

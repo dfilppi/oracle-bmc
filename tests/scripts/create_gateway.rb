@@ -38,10 +38,10 @@ def update_route_table(vcn_client, internet_gateway, vcn, cidrs)
   end
   request = OracleBMC::Core::Models::UpdateRouteTableDetails.new
   request.route_rules = rules
-  vcn_client.update_route_table(vcn.default_route_table_id, request)
+  resp=vcn_client.update_route_table(vcn.default_route_table_id, request)
+  `ctx instance runtime_properties route_table_id "#{resp.data.id}"`
 
   vcn_client.get_route_table(vcn.default_route_table_id).wait_until(:lifecycle_state, OracleBMC::Core::Models::RouteTable::LIFECYCLE_STATE_AVAILABLE, max_wait_seconds: 180)
-  `ctx logger info "Updated route table '#{vcn.default_route_table_id}'"`
 end
 
 bmcconfig=ctx("node properties bmc_config")

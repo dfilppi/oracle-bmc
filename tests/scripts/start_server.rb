@@ -4,10 +4,28 @@ require 'json'
 require 'yaml'
 require 'base64'
 require 'oraclebmc'
+require 'socket'
 
 path=`ctx download_resource "scripts/util.rb"`
 
 require path
+
+def port_open?(ip, port, seconds=1)
+  (1..seconds).each do |i|
+    begin
+      `ctx logger info "CHECKING #{ip} #{port}"`
+      TCPSocket.new(ip, port).close
+      `ctx logger info CONNECTED`
+      return true
+    rescue 
+      `ctx logger info ERR`
+      puts "err"
+    end
+    sleep 1
+  end
+  `ctx logger info TIMEOUT`
+  false
+end
 
 def launch_instance(compute_client, name, subnet_id, availability_domain, compartment_id, image_id, shape, ssh_key)
   puts 'Launching instance...'
@@ -53,7 +71,7 @@ adomain=`ctx node properties availability_domain`
 compartment_id=`ctx node properties compartment_id`
 image_id=`ctx node properties image`
 shape_id=`ctx node properties shape`
-keyfile=parsed['public_key_file']
+keyfile=`ctx node properties ssh_keyfile`
 key=File.open(File.expand_path(keyfile),"rb").read
 
 compute_client=OracleBMC::Core::ComputeClient.new
@@ -68,4 +86,8 @@ vnas.data.each do |vna|
   # This only makes sense in a single NIC scenario (currently all there is)
   `ctx instance runtime_properties public_ip #{vnic.data.public_ip}`
   `ctx instance runtime_properties private_ip #{vnic.data.private_ip}`
+  if not port_open?(vnic.data.public_ip,22,180)
+    raise "timed out waiting for ssh port to be open"
+  end
 end
+

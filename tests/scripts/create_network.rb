@@ -47,11 +47,43 @@ cidr_block=`ctx node properties cidr_block`
 compartment_id=`ctx node properties compartment_id`
 
 vcn_client=get_vcn_client(bmcconfig)
+vcn_id=nil
 
 begin
 
   resp=create_vcn(vcn_client, name, cidr_block, compartment_id)
 
   `ctx instance runtime_properties "vcn" "#{Base64.encode64(Marshal.dump(resp))}"`
-  `ctx instance runtime_properties vcn_id "#{resp.id}"`
+  vcn_id=resp.id
+  `ctx instance runtime_properties vcn_id "#{vcn_id}"`
 end
+
+rawrules=`ctx node properties security_rules`
+`ctx logger info "rawrules=#{rawrules}"`
+rawrules=rawrules.gsub(/u'([^']+)'/,"\"\\1\"")
+`ctx logger info "jsonified rawrules=#{rawrules}"`
+rules=JSON.parse(rawrules)
+
+# get security list
+resp=vcn_client.list_security_lists(compartment_id,vcn_id)
+def_list_id=resp.data[0].id
+`ctx logger info "def sec list id=#{def_list_id}"`
+details=OracleBMC::Core::Models::UpdateSecurityListDetails.new
+details.ingress_security_rules=resp.data[0].ingress_security_rules
+details.egress_security_rules=resp.data[0].egress_security_rules
+
+# add rules
+rules.each do |rule|
+`ctx logger info "rule=#{rule}"`
+ cidr,port=rule.split(',')
+ rule=OracleBMC::Core::Models::IngressSecurityRule.new
+ rule.protocol="6"
+ rule.source=cidr
+ options=OracleBMC::Core::Models::TcpOptions.new
+ range=OracleBMC::Core::Models::PortRange.new
+ range.min=range.max=port
+ options.destination_port_range=range
+ rule.tcp_options=options
+ details.ingress_security_rules << rule
+end
+vcn_client.update_security_list(def_list_id,details)

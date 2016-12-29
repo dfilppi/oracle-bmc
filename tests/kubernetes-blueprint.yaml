@@ -25,13 +25,13 @@ inputs:
     default: /home/opc/.ssh/dfilppi-dc.key.pub
   master_image:
     description: image
-    default: ocid1.image.oc1.phx.aaaaaaaanlsoxr4o6f5rbbwrybiziciu2ijfbjeyx5hah7dulxoysfa3dstq
+    default: ocid1.image.oc1.phx.aaaaaaaarfjsb62lmbim56opxkrvu45dk4yhltlssxp5cx73fwh2xzxb76na
   master_shape:
     description: flavor
     default: BM.Standard1.36
   worker_image:
     description: image
-    default: ocid1.image.oc1.phx.aaaaaaaanlsoxr4o6f5rbbwrybiziciu2ijfbjeyx5hah7dulxoysfa3dstq
+    default: ocid1.image.oc1.phx.aaaaaaaarfjsb62lmbim56opxkrvu45dk4yhltlssxp5cx73fwh2xzxb76na
   worker_shape:
     description: flavor
     default: BM.Standard1.36
@@ -55,9 +55,9 @@ node_templates:
             commands:
               - "curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
               - "chmod +x kubectl"
-              - "sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent"
-              - "sudo firewall-cmd --zone=public --add-port=2379/tcp --permanent"
-              - "sudo firewall-cmd --reload"
+              - "sudo setenforce 0"
+              - "sudo systemctl disable firewalld"
+              - "sudo systemctl stop firewalld"
               - "sudo yum install -y git"
               - "rm -rf kube-deploy"
               - "git clone https://github.com/kubernetes/kube-deploy"
@@ -126,7 +126,7 @@ node_templates:
       cidr_block: "10.10.0.0/16"
       compartment_id: ocid1.tenancy.oc1..aaaaaaaahkcwqbdj6em7q33sd4ahxxdwinwnx6pmucuh3n4nnhu3y4zn23ha
       security_rules: 
-        - "10.10.0.0/24,8080"
+        - "0.0.0.0/0,8080"
         - "10.10.0.0/24,2379"
 
   subnet:

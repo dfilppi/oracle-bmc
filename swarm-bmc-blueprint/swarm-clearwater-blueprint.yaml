@@ -1,0 +1,173 @@
+#
+# Includes Swarm itself, and the Clearwater microservice.  Since this is a local
+# mode blueprint, the microservice is included with the infrastructure.
+#
+tosca_definitions_version: cloudify_dsl_1_3
+
+imports:
+  - http://www.getcloudify.org/spec/cloudify/3.4/types.yaml
+  - http://www.getcloudify.org/spec/fabric-plugin/1.3.1/plugin.yaml
+  - plugins/cloudify-swarm-plugin/plugin.yaml
+  - types/bmc-types.yaml
+
+dsl_definitions:
+  bmc_config: &bmc_config
+    user: ocid1.user.oc1..aaaaaaaams6ntkm4d4f7fy55uas2u7jtgzf3zwoebmukrovxygpuc3lef3kq
+    fingerprint: 42:15:9c:16:0e:34:bc:a3:be:83:31:fb:6c:9f:42:93
+    private_key_file: /home/opc/.ssh/bmcs_api_key
+    public_key_file: /home/opc/.ssh/bmcs_api_key.pub
+    tenancy: ocid1.tenancy.oc1..aaaaaaaahkcwqbdj6em7q33sd4ahxxdwinwnx6pmucuh3n4nnhu3y4zn23ha
+    region: us-phoenix-1
+
+inputs:
+  ssh_user:
+    default: opc
+  ssh_keyfile:
+    default: /home/opc/.ssh/dfilppi-dc.key
+  manager_key:
+    default: /home/opc/.ssh/dfilppi-dc.key.pub
+  worker_key:
+    default: /home/opc/.ssh/dfilppi-dc.key.pub
+  manager_image:
+    description: image
+    default: ocid1.image.oc1.phx.aaaaaaaakh7xxmeisfd57dwzyzvepz3jtgw6jj7xz5ophbqldwsosmpseova
+  manager_shape:
+    description: flavor
+    default: BM.Standard1.36
+  worker_image:
+    description: image
+    default: ocid1.image.oc1.phx.aaaaaaaakh7xxmeisfd57dwzyzvepz3jtgw6jj7xz5ophbqldwsosmpseova
+  worker_shape:
+    description: flavor
+    default: BM.Standard1.36
+  availability_domain:
+    description: availability domain
+    default: vNkz:PHX-AD-2
+
+node_templates:
+  manager_host:
+    type: bmc.nodes.Server
+    properties:
+      install_agent: false
+      bmc_config: *bmc_config
+      ssh_keyfile: { get_input: manager_key}
+      resource_id: manager
+      image: { get_input: manager_image }
+      shape: { get_input: manager_shape }
+      compartment_id: ocid1.tenancy.oc1..aaaaaaaahkcwqbdj6em7q33sd4ahxxdwinwnx6pmucuh3n4nnhu3y4zn23ha
+      availability_domain: { get_input: availability_domain }
+    relationships:
+      - type: bmc.relationships.server_connected_to_subnet
+        target: subnet
+
+  worker_host:
+    type: bmc.nodes.Server
+    properties:
+      install_agent: false
+      bmc_config: *bmc_config
+      ssh_keyfile: { get_input: worker_key}
+      resource_id: worker
+      image: { get_input: worker_image }
+      shape: { get_input: worker_shape }
+      compartment_id: ocid1.tenancy.oc1..aaaaaaaahkcwqbdj6em7q33sd4ahxxdwinwnx6pmucuh3n4nnhu3y4zn23ha
+      availability_domain: { get_input: availability_domain }
+    relationships:
+      - type: bmc.relationships.server_connected_to_subnet
+        target: subnet
+
+  network:
+    type: bmc.nodes.Network
+    properties:
+      bmc_config: *bmc_config
+      resource_id: "kubernetes_network"
+      cidr_block: "10.10.0.0/16"
+      compartment_id: ocid1.tenancy.oc1..aaaaaaaahkcwqbdj6em7q33sd4ahxxdwinwnx6pmucuh3n4nnhu3y4zn23ha
+      security_rules: 
+        - "0.0.0.0/0,8080,tcp"
+        - "10.10.0.0/24,2375,tcp"
+        - "10.10.0.0/24,2377,tcp"
+        - "10.10.0.0/24,7946,tcp"
+        - "10.10.0.0/24,7946,udp"
+        - "10.10.0.0/24,4789,tcp"
+        - "10.10.0.0/24,4789,udp"
+
+  subnet:
+    type: bmc.nodes.Subnet
+    properties:
+      bmc_config: *bmc_config
+      resource_id: kubernetes_subnet
+      cidr_block: 10.10.0.0/24
+      compartment_id: ocid1.tenancy.oc1..aaaaaaaahkcwqbdj6em7q33sd4ahxxdwinwnx6pmucuh3n4nnhu3y4zn23ha
+      availability_domain: { get_input: availability_domain }
+    relationships:
+      - type: bmc.relationships.subnet_connected_to_network
+        target: network
+
+  gateway:
+    type: bmc.nodes.Gateway
+    properties:
+      resource_id: kubernetes_gateway
+      bmc_config: *bmc_config
+      compartment_id: ocid1.tenancy.oc1..aaaaaaaahkcwqbdj6em7q33sd4ahxxdwinwnx6pmucuh3n4nnhu3y4zn23ha
+      route_cidrs:
+        - 0.0.0.0/0
+    relationships:
+      - type: bmc.relationships.gateway_connected_to_network
+        target: network
+
+  manager:
+    type: cloudify.swarm.Manager
+    interfaces:
+      cloudify.interfaces.lifecycle:
+        start:
+          implementation: fabric.fabric_plugin.tasks.run_task
+          inputs:
+            fabric_env:
+              host_string: { get_attribute: [ manager_host, public_ip ] }
+              user: { get_input: ssh_user }
+              key_filename: { get_input: ssh_keyfile }
+            tasks_file: scripts/swarm.py
+            task_name: start_manager
+    relationships:
+      - type: cloudify.swarm.relationships.manager_contained_in_host
+        target: manager_host
+        target_interfaces:
+          cloudify.interfaces.relationship_lifecycle:
+            preconfigure: 
+              inputs:
+                private_ip: { get_attribute: [ manager_host, private_ip ] }
+                public_ip: { get_attribute: [ manager_host, public_ip ] }
+
+  worker:
+    type: cloudify.nodes.SoftwareComponent
+    interfaces:
+      cloudify.interfaces.lifecycle:
+        start:
+          implementation: fabric.fabric_plugin.tasks.run_task
+          inputs:
+            fabric_env:
+              host_string: { get_attribute: [ worker_host, public_ip ] }
+              user: { get_input: ssh_user }
+              key_filename: { get_input: ssh_keyfile }
+            tasks_file: scripts/swarm.py
+            task_name: start_worker
+            task_properties:
+              ip: { get_attribute: [ worker_host, private_ip ] }
+              manager_ip: { get_attribute: [ manager_host, private_ip ] }
+              token: { get_attribute: [ manager, worker_token ] }
+            
+    relationships:
+      - type: cloudify.relationships.depends_on
+        target: manager
+      - type: cloudify.relationships.contained_in
+        target: worker_host
+
+  service:
+    type: cloudify.swarm.Microservice
+    properties:
+      name: clearwater
+      compose_file: clearwater-compose.yaml
+    relationships:
+      - type: cloudify.swarm.relationships.microservice_contained_in_manager
+        target: manager
+
